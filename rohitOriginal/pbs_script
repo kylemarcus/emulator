@@ -1,0 +1,22 @@
+#!/bin/bash
+#PBS -l walltime=05:00:00
+#PBS -l nodes=43:ppn=12
+#PBS -M shivaswa@buffalo.edu
+#PBS -m e
+#PBS -N cpi
+#PBS -o Montesrrat_Nov12.out
+#PBS -j oe
+#
+#
+PBS_O_WORKDIR=/user/shivaswa/final
+cd $PBS_O_WORKDIR
+echo "working directory = "$PBS_O_WORKDIR
+. $MODULESHOME/init/sh
+module load mkl/11.0
+module load intel
+module load intel-mpi/4.0.3
+mpiicpc -Wl,--start-group -I$MKL/include -L$MKL/lib/em64t -lmkl_sequential -lmkl_intel_lp64 -lmkl_core -Wl,--end-group -lpthread Final_Emulator_fork.cpp -o Final_Emulator_fork
+mpirun -np 512 ./Final_Emulator_fork
+exit
+
+
