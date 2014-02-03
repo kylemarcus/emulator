@@ -1,0 +1,20 @@
+#%Module
+
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\tName: Netezza"
+        puts stderr "\tVersion 7.0.2.P9"
+        puts stderr "\tCategory: Database"
+        puts stderr "\tURL http://www-01.ibm.com/software/data/netezza/"
+        puts stderr "\tProvides: Netezza database client access"
+        puts stderr "\tLast Updated: 2014-01-17\n"
+}
+
+module-whatis	"Netezza 7.0.2.P9"
+
+prepend-path PATH /util/netezza/7.0.2.P9/bin
+
+setenv NZ_DATABASE myDB
+setenv NZ_USER myUsername
+setenv NZ_PASSWORD myPasswd
