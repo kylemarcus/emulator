@@ -38,6 +38,6 @@ The second phase is running the MPI emulator code. You may need to change some o
     $ sbatch emulator.slurm
 
 #####Phase 3:
-For phase 3 you must run src/scripts/merge.sh
+For phase 3 you must run the merge script
 
-    $ emulator/src/scripts/merge.s
+    $ emulator/src/scripts/merge.sh
