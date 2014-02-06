@@ -1,6 +1,6 @@
 #!/bin/sh
 #SBATCH --partition=general-compute
-#SBATCH --time=05:00:00
+#SBATCH --time=01:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --job-name="extract"
