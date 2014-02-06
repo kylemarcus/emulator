@@ -1,7 +1,7 @@
 import os
 import re
+import glob
 import argparse
-import fnmatch as fn
 import numpy as np
 
 """
@@ -18,50 +18,31 @@ parser.add_argument("inputDir", help="pileheight input directoy")
 parser.add_argument("outputDir", help="rohit.txt output directory")
 args = parser.parse_args()
 
-Number = []
-data = []
-index = 0
-files = fn.filter(os.listdir(os.getcwd()),'pileheight*')
+with open(os.path.join(args.inputDir, 'rohit.txt'), 'w') as outputFp:
+    
+    for phRecord in glob.iglob(os.path.join(args.inputDir, 'pileheight*')):
+        
+        pileHeight = []
 
-for F in files:
-	index = index + 1
-	H = []
-	data = []
+        filenumber = int(os.path.splitext(phRecord)[1][1:])
+        print phRecord, filenumber
+        
+        with open(phRecord,'r') as phRecordFp:
 
-	file = str(F)
-	print file
-	filenumber = int(re.search(r'[\d]+',file).group()) #gets the ending timestamp number of filename
-	print filenumber
-	fp = open(file,'r')
-	line = fp.readline()
-
-	xline = re.findall(r'[\d.]+',line) #gets first 3 numbers into array
-	line = fp.readline()
-	yline = re.findall(r'[\d.]+',line) #gets the next 3 numbers into array
-	data = data + xline + yline
-	Nx = int(xline[0])
-	Ny = int(yline[0])
-	xstart = float(xline[1])
-	ystart = float(yline[1])
-	xend = float(xline[2])
-	yend = float(yline[2])
-	fp.readline()
-	
-	fp.close()
-
-	Number = Number + [filenumber]
-
-	if index == 1:
-		fp = open('rohit.txt','w')
-	else:
-		fp = open('rohit.txt','a')
-
-
-	for i in range(Ny):
-		for j in range(Nx):
-			p = str(filenumber) + ',' + str(i+1) + ',' + str(j+1) + ',' + str(H[i*Nx + j])
-			fp.write(p)
-			fp.write('\n')
-		fp.write('\n')
-	
-	fp.close()
+            # read header
+            Nx, xstart, xend = re.findall(r'[\d.]+', phRecordFp.readline())
+            Ny, ystart, yend = re.findall(r'[\d.]+', phRecordFp.readline())
+            fp.readline()
+            
+            # read pileheight matrix
+            for i in range(int(Ny)):
+                pileHeight += phRecordFp.readline().split()
+            
+            # write to output file
+            for i in range(int(Ny)):
+                for j in range(int(Nx)):
+                    outputFp.write( str(filenumber) + ',' + \
+                                    str(i+1) + ',' + \
+                                    str(j+1) + ',' + \
+                                    str(pileHeight[i*Nx+j]) + '\n' )
+                    
