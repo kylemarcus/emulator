@@ -61,9 +61,8 @@ function make_initial_hazard_map_Montserrat_Take2(outputDir)
      
     %fprintf(fid,'%g\n',crith,Ndiminmacro,W,Nxmap);
     %fprintf(fid,'%.2f %.2f %.14g %.14g\n',xWIWI2');
-    t = xWIWI2';
-    t2 = t(:,1:2);
-    fprintf(fid,'%.2f %.2f\n',t2);
+    index=[1:length(xWIWI2)]';
+    fprintf(fid,'%d %.2f %.2f\n',[index xWIWI2(:,1:2)]');
     %fprintf(fid,'%g\n',Nresamp);
     %fprintf(fid,'%.10g %.10g %.10g %.10g %.10g\n',[log10vol(:) Estart(:) Nstart(:) BedFrictAng(:) w(:)]'); % I did
     %not need to evaluate this line since Nresamp=0, basiaclly I wrote 0 
