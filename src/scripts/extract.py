@@ -17,7 +17,7 @@ parser.add_argument("inputDir", help="pileheight input directoy")
 parser.add_argument("outputDir", help="rohit.txt output directory")
 args = parser.parse_args()
 
-with open(os.path.join(args.inputDir, 'rohit.txt'), 'w') as outputFp:
+with open(os.path.join(args.outputDir, 'rohit.txt'), 'w') as outputFp:
     
     for phRecord in glob.iglob(os.path.join(args.inputDir, 'pileheight*')):
         
@@ -31,7 +31,7 @@ with open(os.path.join(args.inputDir, 'rohit.txt'), 'w') as outputFp:
             # read header
             Nx, xstart, xend = re.findall(r'[\d.]+', phRecordFp.readline())
             Ny, ystart, yend = re.findall(r'[\d.]+', phRecordFp.readline())
-            fp.readline()
+            phRecordFp.readline()
             
             # read pileheight matrix
             for i in range(int(Ny)):
@@ -43,5 +43,4 @@ with open(os.path.join(args.inputDir, 'rohit.txt'), 'w') as outputFp:
                     outputFp.write( str(filenumber) + ',' + \
                                     str(i+1) + ',' + \
                                     str(j+1) + ',' + \
-                                    str(pileHeight[i*Nx+j]) + '\n' )
-                    
+                                    str(pileHeight[i*int(Nx)+j]) + '\n' )
