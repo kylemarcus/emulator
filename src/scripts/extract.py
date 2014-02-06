@@ -2,7 +2,6 @@ import os
 import re
 import glob
 import argparse
-import numpy as np
 
 """
 Creates the file rohit.txt, which has information on pileheight records
