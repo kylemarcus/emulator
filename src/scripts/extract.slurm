@@ -21,6 +21,6 @@ ulimit -s unlimited
 
 echo "Running python extract.py"
 
-python extract.py /projects/gmfg/montserrat-2012/d_20cells/output_files_20cells /panasas/scratch/kmarcus2 &>/panasas/scratch/kmarcus2/extract.eo
+python extract.py /projects/gmfg/montserrat-2012/d_20cells/uncertain_input_list.txt /projects/gmfg/montserrat-2012/d_20cells/output_files_20cells /panasas/scratch/kmarcus2 &>/panasas/scratch/kmarcus2/extract.eo
 
 echo done
