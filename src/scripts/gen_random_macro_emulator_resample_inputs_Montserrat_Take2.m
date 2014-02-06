@@ -1,4 +1,4 @@
-function gen_random_macro_emulator_resample_inputs_Montserrat_Take2(Nxmacro)
+function gen_random_macro_emulator_resample_inputs_Montserrat_Take2(Nxmacro, outputDir)
     
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %these 2 parameters are from the SAMSI technometrics paper for
@@ -49,7 +49,7 @@ function gen_random_macro_emulator_resample_inputs_Montserrat_Take2(Nxmacro)
     
     rand('twister',5489)
 
-    fid=fopen('macro_resamples.tmp','w');
+    fid=fopen(strcat(outputDir,'/macro_resamples.tmp'),'w');
 
     Ndiminmacro=4;
     r=BinOptLHSRand(Ndiminmacro,Nxmacro);
@@ -65,7 +65,7 @@ function gen_random_macro_emulator_resample_inputs_Montserrat_Take2(Nxmacro)
 
 
     w=pfrechet./pdraw; %non normalized likelihood ratio for importance sampling
-    sumwdivNxmacro=sum(w)/Nxmacro
+    sumwdivNxmacro=sum(w)/Nxmacro;
     w=w/mean(w);
     
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -79,9 +79,9 @@ function gen_random_macro_emulator_resample_inputs_Montserrat_Take2(Nxmacro)
     BEDFRICTANG=BEDMIN+(BEDMAX-BEDMIN)*r(:,3);
     INTFRICTANG=BEDFRICTANG+17+7*r(:,4);
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    N=length(log10vol,1);
-    ind=1:1:N;
-    fprintf(fid,'%d %.10g %.10g %.10g %.10g %.10g\n',[ind log10vol Direction BEDFRICTANG INTFRICTANG w]');
+
+    index=[1:length(log10vol)]';
+    fprintf(fid,'%d %.10g %.10g %.10g %.10g %.10g\n',[index log10vol Direction BEDFRICTANG INTFRICTANG w]');
 
     fclose(fid);
     
