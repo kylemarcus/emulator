@@ -29,11 +29,11 @@ o=/panasas/scratch/kmarcus2/emulator/extract
 sql=(${s}/input.sql ${s}/sample_count.sql ${s}/extract_phm.sql ${s}/extract_resamples.sql ${s}/uniq_coord.sql)
 out=(${o}/input.out ${o}/sample_count.txt ${o}/phm.txt         ${o}/resamples.txt         ${o}/uniq_coords.txt)
 
-nzsql -host netezza -d kmarcus2_db -c "DROP DATABASE $NZ_DATABASE"
-nzsql -host netezza -d kmarcus2_db -c "CREATE DATABASE $NZ_DATABASE"
+nzsql -host netezza -d ${USER}_db -c "DROP DATABASE $NZ_DATABASE"
+nzsql -host netezza -d ${USER}_db -c "CREATE DATABASE $NZ_DATABASE"
 
 for i in ${!sql[*]}
 do
 	echo ${sql[$i]}
-	nzsql -host netezza < ${sql[$i]} > ${out[$i]}
+	nzsql -t -A -F , -host netezza < ${sql[$i]} > ${out[$i]}
 done
