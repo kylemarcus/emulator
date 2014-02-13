@@ -53,6 +53,7 @@
 #define PRINT(x) do { std::cout << x << std::endl; } while (0)
 #define PRINT_VAR(x) do { std::cout << #x << ": " << x << std::endl; } while (0)
 
+// ends the mpi program and flushes debug output
 #define END_PROGRAM \
     if (DEBUG_PRINT_ENABLED) { \
         debugFile.flush(); \
@@ -102,8 +103,9 @@ int main(int argc, char * argv[]) {
     double *min, *max;
     FILE * fp1, *fpipe;
     double **resamples, **phm;
+    //phm_neighbours_index is for rank != root while phm_neighbours is for rank == root
     int resample_neighbours_count, *resample_neighbours, *phm_neighbours_count,
-            **phm_neighbours, *phm_neighbours_index; //phm_neighbours_index is for rank != root while phm_neighbours is for rank == root
+            **phm_neighbours, *phm_neighbours_index; 
     int Ngroups, Nleft, Nsample, Ntasks, start_sample, stop_sample, *rank_list;
     int isample, iproc, Netezza_count = 0;
     int count, **pass_count;
@@ -198,6 +200,7 @@ int main(int argc, char * argv[]) {
 
         sample = 0;
         for (j = 1; j <= Ngroups; j++) {
+
             i = j - 1;
             MPI_Send(&sample, 1, MPI_INT, master_rank[i], 8, MPI_COMM_WORLD);
             sample++;
@@ -209,6 +212,7 @@ int main(int argc, char * argv[]) {
             master_indicator[i] = -1;
             MPI_Irecv(&master_indicator[i], 1, MPI_INT, master_rank[i],
                     Nprocs + master_rank[i], MPI_COMM_WORLD, &master_req[i]);
+
         }
 
         while (master_sum > 0) {
@@ -222,6 +226,7 @@ int main(int argc, char * argv[]) {
 
                     master_indicator[i] = -1;
                     master_sum--;
+                    DEBUG_VAR(master_sum);
                     MPI_Send(&sample, 1, MPI_INT, master_rank[i], 7,
                             MPI_COMM_WORLD);
                     sample++;
@@ -245,8 +250,6 @@ int main(int argc, char * argv[]) {
                  */
 
             }
-
-            DEBUG_VAR(master_sum);
 
         }
 
@@ -294,8 +297,6 @@ int main(int argc, char * argv[]) {
         rank_list = NULL;
 
     }
-
-    END_PROGRAM;
 
     if (rank != root && rank != 0) {
 
