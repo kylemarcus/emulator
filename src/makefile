@@ -10,7 +10,7 @@ objects = final_emulator_fork
 all: $(objects)
 
 $(objects): *.cpp
-	$(CC) $(FLAGS) $@.cpp -o $@ $(LIBS)
+	$(CC) -g $(FLAGS) $@.cpp -o $@ $(LIBS)
 
 install:
 	mkdir -p $(installDir)
