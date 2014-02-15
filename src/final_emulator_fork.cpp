@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <fstream>
+#include <iterator>
 #include <stdlib.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -15,6 +16,7 @@
 #include "matrixop.h"
 #include <ctime>
 #include <string.h>
+#include <boost/program_options.hpp>
 
 #define RESAMPLES_TXT "/panasas/scratch/kmarcus2/emulator/extract/resamples.txt"
 #define PHM_TXT "/panasas/scratch/kmarcus2/emulator/extract/phm.txt"
@@ -29,10 +31,11 @@
 #define PROXIMITY_SH "/user/kmarcus2/emulator/src/scripts/proximity.sh"
 #define STATS_SH "/user/kmarcus2/emulator/src/scripts/stats.sh"
 
+/*
 #define RADIUS 100                      //Radius of neighbour search for spatial points
 #define Ndim 4                          //Number of dimensions - parametric
 //#define M 32                          //Number of processors in a group
-#define M 2                         //Number of processors in a group
+#define M 4                         //Number of processors in a group
 //#define S 2048                            //Number of Titan simulations
 #define S 20                            //Number of Titan simulations
 #define MACRO_SCALED_RADIUS 0.2         //Radius of search for macro-parameters
@@ -42,9 +45,23 @@
 #define MERGE_COUNT 200
 #define MERGE_SAFE 25
 #define NEWTON_ITERATIONS 10
+*/
+
+int RADIUS = 100;
+int Ndim = 4;
+int M = 4;
+int S = 20;
+double MACRO_SCALED_RADIUS = 0.2;
+int T = 120;
+int MAX_COUNT = 800;
+int TOO_FEW = 10;
+int MERGE_COUNT = 200;
+int MERGE_SAFE = 25;
+int NEWTON_ITERATIONS = 10;
 
 // debug output to stderr
 #define DEBUG_PRINT_ENABLED 1
+#define DEBUG_FILE "/panasas/scratch/kmarcus2/emulator/debug/%i.debug"
 #define DEBUG_FORMAT "DEBUG " << rank << " [" << __FILE__ << ":" << __LINE__ << " " << __DATE__ << " " << __TIME__ << "] "
 #define DEBUG(x) do { if (DEBUG_PRINT_ENABLED) debugFile << DEBUG_FORMAT << x << std::endl; } while (0)
 #define DEBUG_VAR(x) do { if (DEBUG_PRINT_ENABLED) debugFile << DEBUG_FORMAT << #x << ": " << x << std::endl; } while (0)
@@ -63,6 +80,7 @@
     MPI_Finalize(); \
     return 1; 
 
+namespace po = boost::program_options;
 using namespace std;
 
 struct Data6 {
@@ -85,12 +103,49 @@ int main(int argc, char * argv[]) {
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &Nprocs);
+    
+    try {
 
+        po::options_description desc("Options");
+        desc.add_options()
+            ("help", "Help message")
+            ("radius", po::value<int>(&RADIUS)->default_value(100, "100"), "Radius of neighbour search for spatial points")
+            ("ndim", po::value<int>(&Ndim)->default_value(4, "4"), "Number of dimensions - parametric")
+            ("procPerGroup", po::value<int>(&M)->default_value(32, "32"), "Number of processors in a group")
+            ("sims", po::value<int>(&S)->default_value(2048, "2048"), "Number of Titan simulations")
+            ("macroScaledRadius", po::value<double>(&MACRO_SCALED_RADIUS)->default_value(0.2, "0.2"), "Radius of search for macro-parameters")
+            ("covarNeighbours", po::value<int>(&T)->default_value(120, "120"), "Number of neighbours needed to be considered for setting up co-variance matrix. should be < 500")
+            ("netezzaBuff", po::value<int>(&MAX_COUNT)->default_value(800, "800"), "Number of emulator constructions after which data is piped to Netezza")
+            ("spatialNeighbours", po::value<int>(&TOO_FEW)->default_value(10, "10"), "Number of neighbours for a spatial point. for 10 points or less ")
+            ("mergeCount", po::value<int>(&MERGE_COUNT)->default_value(200, "200"), "Merge count")
+            ("mergeSafe", po::value<int>(&MERGE_SAFE)->default_value(25, "25"), "Merge safe")
+            ("NewtonIter", po::value<int>(&NEWTON_ITERATIONS)->default_value(10, "10"), "Newton Iterations")
+        ;   
+
+        po::variables_map vm;    
+        po::store(po::parse_command_line(argc, argv, desc), vm);
+        po::notify(vm);
+
+        // --help
+        if (vm.count("help")) {
+            if (rank == 0) PRINT(desc);
+            MPI_Finalize();
+            return 0;
+        }   
+  
+    }   
+    catch(exception& e) {
+        cerr << "error: " << e.what() << "\n";
+        return 1;
+    }   
+    catch(...) {
+        cerr << "Exception of unknown type!\n";
+    }
+    
     // open debug file
     if (DEBUG_PRINT_ENABLED) {
         char buff[128];
-        sprintf(buff, "/panasas/scratch/kmarcus2/emulator/debug/%i.debug",
-                rank);
+        sprintf(buff, DEBUG_FILE, rank);
         debugFile.open(buff);
     }
 

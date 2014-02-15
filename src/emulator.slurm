@@ -23,6 +23,7 @@ module load intel-mpi
 module load mkl
 module load use.own
 module load netezza
+module load boost
 
 ulimit -s unlimited
 
