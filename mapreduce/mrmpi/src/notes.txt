@@ -1,0 +1,56 @@
+Instructions on how to compile/run mrmpi on rush
+http://mapreduce.sandia.gov/
+http://mapreduce.sandia.gov/doc/Interface_c++.html
+
+Compile mr-mpi shared lib
+
+$ module load intel
+$ module load intel-mpi
+$ tar xf mrmpi.tar.gz
+$ cd mrmpi-22Nov13/src
+$ make -f Makefile.shlib mpicc
+
+**NOTE: There are specific makefiles in the MAKE directory.  I modified one of them to use the intel mpi compilers instead of the gnu ones.
+
+Compile mr-mpi c/c++ examples
+
+$ module load intel
+$ module load intel-mpi
+$ cd mrmpi-22Nov13/examples
+$ make -f Makefile.mpicc
+
+**NOTE: you may need to edit the makefile a little b/c of shared lib name changes, I made a custom one for mpiicpc
+
+Run mr-mpi c/c++ examples
+
+$ module load intel
+$ module load intel-mpi
+$ cd mrmpi-22Nov13/examples
+$ wget -r -P /panasas/scratch/kmarcus2/textfiles -A txt http://www.textfiles.com/etext/NONFICTION/
+$ mpirun -np 8 ./wordfreq /panasas/scratch/kmarcus2/textfiles/*
+$ mpirun -np 8 ./cwordfreq /panasas/scratch/kmarcus2/textfiles/*
+
+**NOTE: these examples work on multiple text files so I just downloaded a bunch of text file books from textfile.com
+
+To run the python examples you first need to install PyPar
+
+$ git clone https://github.com/daleroberts/pypar.git
+$ cd pypar
+$ module load intel-mpi
+$ module load python-epd/7.1.2
+$ python setup.py build
+$ python setup.py install --user
+
+**NOTE: this will install the module in ~/.local
+
+Run the python example
+
+$ module load python-epd/7.1.2
+$ module load intel
+$ module load intel-mpi
+$ module load use.own
+$ module load mrmpi-python
+$ cd mrmpi-22Nov13/examples
+$ mpirun -np 8 python wordfreq.py /panasas/scratch/kmarcus2/textfiles/*
+
+**NOTE: the mrmpi-python module is a custom built module that appends to the PYTHONPATH and the LD_LIBRARY_PATH env vars.
