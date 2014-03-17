@@ -1,0 +1,17 @@
+#%Module
+
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\tName: mrmpi-python"
+        puts stderr "\tVersion 22Nov13"
+        puts stderr "\tCategory: Parallel Python"
+        puts stderr "\tURL http://mapreduce.sandia.gov/doc/Interface_python.html"
+        puts stderr "\tProvides: Access to the mrmpi module for python"
+        puts stderr "\tLast Updated: 2014-02-09\n"
+}
+
+module-whatis	"mrmpi python module 22Nov13"
+
+prepend-path PYTHONPATH /user/kmarcus2/mrmpi-22Nov13/python
+prepend-path LD_LIBRARY_PATH /user/kmarcus2/mrmpi-22Nov13/src
