@@ -1,0 +1,6 @@
+module load intel
+module load mkl/11.0
+icpc -Wl,--start-group -I$MKL/include -L$MKL/lib/em64t -lmkl_sequential -lmkl_intel_lp64 -lmkl_core -Wl,--end-group -lpthread newEmulator.cpp -o newEmulator
+
+
+icpc -Wl,-rpath=$MKL/lib/em64t,--start-group -I$MKL/include -L$MKL/lib/em64t -lmkl_sequential -lmkl_intel_lp64 -lmkl_core -Wl,--end-group -lpthread newEmulator.cpp -o newEmulator

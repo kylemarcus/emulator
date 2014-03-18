@@ -1,0 +1,69 @@
+
+#! /bin/sh
+#SBATCH --partition=general-compute
+#SBATCH --time=20:00:00
+#SBATCH --nodes=30
+#SBATCH --ntasks-per-node=4
+#SBATCH --job-name="AUG_28_AGGREGATE"
+#SBATCH --output=AUG_28_AGGREGATE
+#SBATCH --mail-user=shivaswa@buffalo.edu
+#SBATCH --mail-type=ALL
+##SBATCH --requeue
+#Specifies that the job will be requeued after a node failure.
+#The default is that the job will not be requeued.
+
+echo "SLURM_JOB_ID="$SLURM_JOB_ID
+echo "SLURM_JOB_NODELIST"=$SLURM_JOB_NODELIST
+echo "SLURM_NNODES"=$SLURM_NNODES
+echo "SLURMTMPDIR="$SLURMTMPDIR
+echo $SLURM_JOB_NODELIST | python node_list.py > MY_NODE_LIST
+
+
+#cd $SLURM_SUBMIT_DIR
+#echo "working directory = "$SLURM_SUBMIT_DIR
+module load intel
+module load mkl/11.0
+
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/util/intel/Compiler/11.0/083/mkl/lib/em64t/
+
+
+cat MY_NODE_LIST | ./clean_up.sh
+
+cd ~/my_hadoop
+./hadoop_initialiser.sh $SLURM_NNODES
+sleep 10
+#icpc -Wl,--start-group -I$MKL/include -L$MKL/lib/em64t -lmkl_sequential -lmkl_intel_lp64 -lmkl_core -Wl,--end-group -lpthread newEmulator.cpp -o newEmulator
+#icpc -Wl,-rpath=$MKL/lib/em64t,--start-group -I$MKL/include -L$MKL/lib/em64t -lmkl_sequential -lmkl_intel_lp64 -lmkl_core -Wl,--end-group -lpthread newEmulator.cpp -o newEmulator
+
+
+sleep 10
+
+cd ~/hadoop-0.20.1
+bin/hadoop dfs -copyFromLocal /panasas/scratch/shivaswa/emulator_output/file_*  /
+
+sleep 5
+
+bin/hadoop jar contrib/streaming/hadoop-*streaming*.jar \
+-D mapred.reduce.tasks=200  \
+-file /user/shivaswa/my_hadoop/map6.py   -mapper map6.py \
+-file  /user/shivaswa/my_hadoop/reduce3.py  -reducer reduce3.py \
+-file  /user/shivaswa/my_hadoop/neighbor.py \
+-file  /user/shivaswa/my_hadoop/parser.py \
+-file  /user/shivaswa/my_hadoop/build_data_set.py \
+-input /file_* -output /phm_resample_mean
+
+
+sleep 10
+
+
+bin/hadoop dfs -copyToLocal /phm_resample_mean/* /panasas/scratch/shivaswa/phm_resample_mean_Aug_28
+
+
+for node in `cat MY_NODE_LIST`
+do
+ssh $node 'bash -s' < copy_log.sh $node
+done
+
+cd ~/my_hadoop
+./stop_hadoop.sh
+

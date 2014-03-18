@@ -1,0 +1,104 @@
+#!/bin/sh
+##SBATCH --partition=general-compute
+#SBATCH --partition=debug
+#SBATCH --time=01:00:00
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=4
+#SBATCH --job-name="Large_File_Set_Jul19"
+#SBATCH --output=Large_File_Set_Jul19
+#SBATCH --mail-user=shivaswa@buffalo.edu
+#SBATCH --mail-type=ALL
+##SBATCH --requeue
+
+#Specifies that the job will be requeued after a node failure.
+#The default is that the job will not be requeued.
+
+echo "SLURM_JOB_ID="$SLURM_JOB_ID
+echo "SLURM_JOB_NODELIST"=$SLURM_JOB_NODELIST
+echo "SLURM_NNODES"=$SLURM_NNODES
+echo "SLURMTMPDIR="$SLURMTMPDIR
+echo $SLURM_JOB_NODELIST | python node_list.py > MY_NODE_LIST
+
+
+#cd $SLURM_SUBMIT_DIR
+#echo "working directory = "$SLURM_SUBMIT_DIR
+module load intel
+module load mkl/11.0
+
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/util/intel/Compiler/11.0/083/mkl/lib/em64t/
+
+
+cat MY_NODE_LIST | ./clean_up.sh
+
+cd ~/my_hadoop
+./hadoop_initialiser.sh $SLURM_NNODES
+sleep 10
+#icpc -Wl,--start-group -I$MKL/include -L$MKL/lib/em64t -lmkl_sequential -lmkl_intel_lp64 -lmkl_core -Wl,--end-group -lpthread newEmulator.cpp -o newEmulator
+#icpc -Wl,-rpath=$MKL/lib/em64t,--start-group -I$MKL/include -L$MKL/lib/em64t -lmkl_sequential -lmkl_intel_lp64 -lmkl_core -Wl,--end-group -lpthread newEmulator.cpp -o newEmulator
+
+
+sleep 10
+
+cd down_sample_files
+
+
+cd ~/hadoop-0.20.1
+bin/hadoop dfs -copyFromLocal /user/shivaswa/my_hadoop/FILES/file_* /
+#bin/hadoop dfs -copyFromLocal /user/shivaswa/my_hadoop/down_sample_files/downsample000774.txt /
+#bin/hadoop dfs -copyFromLocal /user/shivaswa/my_hadoop/down_sample_files/downsample000783.txt /
+#bin/hadoop dfs -copyFromLocal /user/shivaswa/my_hadoop/down_sample_files/downsample000813.txt /
+#bin/hadoop dfs -copyFromLocal /user/shivaswa/my_hadoop/down_sample_files/downsample000830.txt /
+#bin/hadoop dfs -copyFromLocal /user/shivaswa/my_hadoop/down_sample_files/downsample000904.txt /
+#bin/hadoop dfs -copyFromLocal /user/shivaswa/my_hadoop/down_sample_files/downsample000917.txt /
+#bin/hadoop dfs -copyFromLocal /user/shivaswa/my_hadoop/down_sample_files/downsample000919.txt /
+#bin/hadoop dfs -copyFromLocal /user/shivaswa/my_hadoop/down_sample_files/downsample000942.txt /
+#bin/hadoop dfs -copyFromLocal /user/shivaswa/my_hadoop/down_sample_files/downsample000277.txt /
+#bin/hadoop dfs -copyFromLocal /user/shivaswa/my_hadoop/down_sample_files/downsample000406.txt /
+#bin/hadoop dfs -copyFromLocal /user/shivaswa/my_hadoop/down_sample_files/downsample000439.txt / 
+#bin/hadoop dfs -copyFromLocal /user/shivaswa/my_hadoop/down_sample_files/downsample000790.txt /
+#bin/hadoop dfs -copyFromLocal /user/shivaswa/my_hadoop/down_sample_files/downsample000792.txt /
+#bin/hadoop dfs -copyFromLocal /user/shivaswa/my_hadoop/down_sample_files/downsample000797.txt /
+#bin/hadoop dfs -copyFromLocal /user/shivaswa/my_hadoop/down_sample_files/downsample000822.txt /
+#bin/hadoop dfs -copyFromLocal /user/shivaswa/my_hadoop/down_sample_files/downsample000960.txt /
+
+
+
+sleep 5
+
+bin/hadoop jar contrib/streaming/hadoop-*streaming*.jar \
+-file /user/shivaswa/my_hadoop/map3.sh   -mapper map3.sh \
+-file  /user/shivaswa/my_hadoop/reduce3.py  -reducer reduce3.py \
+-file  /user/shivaswa/my_hadoop/neighbor.py \
+-file  /user/shivaswa/my_hadoop/parser.py \
+-file  /user/shivaswa/my_hadoop/build_data_set.py \
+-file  /user/shivaswa/my_hadoop/emulator.py \
+-file  /user/shivaswa/my_hadoop/newEmulator    \
+-file  /user/shivaswa/my_hadoop/new_build_emulator.h    \
+-file  /user/shivaswa/my_hadoop/matrixop.h    \
+-file  /util/intel/Compiler/11.0/083/mkl/lib/em64t/libmkl_sequential.so    \
+-file  /util/intel/Compiler/11.0/083/mkl/lib/em64t/libmkl_intel_lp64.so    \
+-file  /util/intel/Compiler/11.0/083/mkl/lib/em64t/libmkl_core.so    \
+-file  /lib64/libpthread.so.0    \
+-input /file_* -output /output_emulator
+#-input /downsample00* -output /output_emulator
+
+
+sleep 10
+
+
+bin/hadoop dfs -copyToLocal /output_emulator/* /panasas/scratch/shivaswa/output_emulator/file_2_proc
+
+sleep 5
+
+
+#bin/hadoop jar contrib/streaming/hadoop-*streaming*.jar \
+#-file /user/shivaswa/my_hadoop/map5.py   -mapper map5.py \
+#-file  /user/shivaswa/my_hadoop/reduce5.py  -reducer reduce5.py \
+#-file  /user/shivaswa/my_hadoop/reduce3.py \
+#-input /output_emulator/part-* -output /output_aggregate
+
+
+
+cd ~/my_hadoop
+./stop_hadoop.sh
+

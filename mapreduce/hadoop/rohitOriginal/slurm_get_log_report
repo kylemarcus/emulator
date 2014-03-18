@@ -1,0 +1,22 @@
+#!/bin/sh
+#SBATCH --partition=general-compute
+#SBATCH --time=15:00:00
+#SBATCH --nodelist=d07n16s01
+##SBATCH --nodelist=d07n16s01
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --job-name="ERROR_REPORT_$1"
+#SBATCH --output=ERROR_REPORT_$1
+#SBATCH --mail-user=shivaswa@buffalo.edu
+#SBATCH --mail-type=ALL
+##SBATCH --requeue
+#Specifies that the job will be requeued after a node failure.
+#The default is that the job will not be requeued.
+
+echo "SLURM_JOB_ID="$SLURM_JOB_ID
+echo "SLURM_JOB_NODELIST"=$SLURM_JOB_NODELIST
+echo "SLURM_NNODES"=$SLURM_NNODES
+echo "SLURMTMPDIR="$SLURMTMPDIR
+
+ssh d07n16s01
+cp /scratch/d07n16s01/userlogs/attemp*/stderr ~/my_hadoop/userlogs

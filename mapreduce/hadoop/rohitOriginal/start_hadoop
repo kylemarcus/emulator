@@ -1,0 +1,86 @@
+bin/hadoop dfs -copyFromLocal /user/shivaswa/my_hadoop/my_file /
+
+bin/hadoop jar contrib/streaming/hadoop-*streaming*.jar \
+-file /user/shivaswa/my_hadoop/map1.py   -mapper /user/shivaswa/my_hadoop/map1.py \
+-file  /user/shivaswa/my_hadoop/reduce1.py  -reducer /user/shivaswa/my_hadoop/reduce1.py \
+-input /my_file  -output /
+
+
+bin/hadoop jar contrib/streaming/hadoop-*streaming*.jar \
+-file /user/shivaswa/my_hadoop/map1.sh   -mapper map1.sh \
+-file  /user/shivaswa/my_hadoop/reduce1.py  -reducer reduce1.py \
+-file  /user/shivaswa/my_hadoop/map1.py \
+-file  /user/shivaswa/my_hadoop/neighbor.py \
+-file  /user/shivaswa/my_hadoop/parser.py \
+-file  /user/shivaswa/my_hadoop/build_data_set.py \
+-input /my_file  -output /my_output
+
+
+
+Jun 9 : Follow the steps below:
+
+1. qsub -I -lnodes=30:ppn=8 -lwalltime=02:00:00
+
+2. cat $PBS_NODEFILE | sort -u | ./clean_up.sh
+
+3. ./hadoop_initialiser.sh 30
+
+4. cd ~/hadoop-0.20.1
+ bin/hadoop dfs -copyFromLocal /user/shivaswa/my_hadoop/montserrat_take2_vol_dir_bed_int.phm /
+
+5. Next run the below lines:
+
+bin/hadoop jar contrib/streaming/hadoop-*streaming*.jar \
+-file /user/shivaswa/my_hadoop/map1.sh   -mapper map1.sh \
+-file  /user/shivaswa/my_hadoop/reduce1.py  -reducer reduce1.py \
+-file  /user/shivaswa/my_hadoop/map1.py \
+-file  /user/shivaswa/my_hadoop/neighbor.py \
+-file  /user/shivaswa/my_hadoop/parser.py \
+-file  /user/shivaswa/my_hadoop/build_data_set.py \
+-input /montserrat_take2_vol_dir_bed_int.phm  -output /output_1
+
+6. Next copy the rsult file into home/local diirectory. part-0000 is the filename that was generated.
+bin/hadoop dfs -copyToLocal /output_1/part-00000 /user/shivaswa/my_hadoop/
+
+Also rename the file both on hdfs and on local directory to "uniq_phm.txt"
+bin/hadoop dfs -mv /output_1/part-00000 /output_1/uniq_phm.txt
+
+cat uniq_phm.txt | python map4.py | python reduce4.py > phm_count
+
+7. Copy resamples.txt to hdfs:
+bin/hadoop dfs -copyFromLocal /user/shivaswa/my_hadoop/resamples.txt /
+
+8. Run  the second set of map-reduce scripts to get sample-resamples neighbors.
+
+bin/hadoop jar contrib/streaming/hadoop-*streaming*.jar \
+-file /user/shivaswa/my_hadoop/map2.py   -mapper map2.py \
+-file  /user/shivaswa/my_hadoop/reduce2.py  -reducer reduce2.py \
+-file  /user/shivaswa/my_hadoop/neighbor.py \
+-file  /user/shivaswa/my_hadoop/parser.py \
+-file  /user/shivaswa/my_hadoop/build_data_set.py \
+-input /resamples.txt  -output /output_2
+
+9. Copy the result from /output_2 to home directory:
+bin/hadoop dfs -copyToLocal /output_2/part-00000 /user/shivaswa/my_hadoop/
+
+
+
+bin/hadoop jar contrib/streaming/hadoop-*streaming*.jar \
+-file /user/shivaswa/my_hadoop/map3.sh   -mapper map3.sh \
+-file  /user/shivaswa/my_hadoop/reduce_me.py  -reducer reduce_me.py \
+-file  /user/shivaswa/my_hadoop/neighbor.py \
+-file  /user/shivaswa/my_hadoop/parser.py \
+-file  /user/shivaswa/my_hadoop/build_data_set.py \
+-file  /user/shivaswa/my_hadoop/emulator.py \
+-file  /user/shivaswa/my_hadoop/emulator    \
+-input /file_*  -output /output_testing
+
+
+-cacheFile  hdfs://localhost:9000/emulator#emulator \
+
+
+
+
+
+
+g++ -Wall -lblas -llapack emulator.cpp -o emulator

@@ -1,0 +1,23 @@
+#!/bin/bash
+#SBATCH --partition=general-compute
+##SBATCH --partition=debug
+#SBATCH --time=02:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=2
+#SBATCH --job-name="Emulator_Aug_27_num"
+#SBATCH --output=Emulator_Aug_27_num
+#SBATCH --mail-user=shivaswa@buffalo.edu
+#SBATCH --mail-type=ALL
+##SBATCH --requeue
+
+#export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
+
+module load intel
+module load mkl/11.0
+#module load intel-mpi/4.0.3
+cd ~/my_hadoop
+./map3.sh $1
+#srun ./downsample 2048
+exit
+
+

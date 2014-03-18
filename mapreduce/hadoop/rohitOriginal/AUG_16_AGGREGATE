@@ -1,0 +1,547 @@
+SLURM_JOB_ID=175824
+SLURM_JOB_NODELIST=k07n02s01,k10n37s01,k10n38s02,k10n40s[01-02],k10n41s02,k11n23s01,k11n24s01,k11n25s02,k13n07s02,k13n19s[01-02],k13n23s01,k13n24s02,k13n27s01,k13n28s01,k13n39s01,k14n01s01,k14n02s02,k14n03s01,k14n06s02,k14n25s01,k14n26s01,k14n27s01,k14n28s01,k14n30s[01-02],k14n34s[01-02],k14n38s02
+SLURM_NNODES=30
+SLURMTMPDIR=/scratch/175824
+node :  k07n02s01
+rm: cannot remove `174717': Permission denied
+rm: cannot remove `lost+found': Permission denied
+node :  k10n37s01
+rm: cannot remove `128731': Permission denied
+rm: cannot remove `174717': Permission denied
+rm: cannot remove `lost+found': Permission denied
+node :  k10n38s02
+rm: cannot remove `174717': Permission denied
+rm: cannot remove `lost+found': Permission denied
+node :  k10n40s01
+rm: cannot remove `124120': Permission denied
+rm: cannot remove `174717': Permission denied
+rm: cannot remove `lost+found': Permission denied
+node :  k10n40s02
+rm: cannot remove `147399': Permission denied
+rm: cannot remove `174717': Permission denied
+rm: cannot remove `lost+found': Permission denied
+rm: cannot remove `xdtas': Operation not permitted
+node :  k10n41s02
+rm: cannot remove `101252': Permission denied
+rm: cannot remove `144849': Permission denied
+rm: cannot remove `163334': Permission denied
+rm: cannot remove `175772': Permission denied
+rm: cannot remove `lost+found': Permission denied
+rm: cannot remove `xdtas': Operation not permitted
+node :  k11n23s01
+rm: cannot remove `175773': Permission denied
+rm: cannot remove `lost+found': Permission denied
+node :  k11n24s01
+rm: cannot remove `175774': Permission denied
+rm: cannot remove `lost+found': Permission denied
+rm: cannot remove `xdtas': Operation not permitted
+node :  k11n25s02
+rm: cannot remove `lost+found': Permission denied
+node :  k13n07s02
+rm: cannot remove `174717': Permission denied
+rm: cannot remove `GRIR.wfc181': Operation not permitted
+rm: cannot remove `GRIR.wfc182': Operation not permitted
+rm: cannot remove `GRIR.wfc183': Operation not permitted
+rm: cannot remove `GRIR.wfc184': Operation not permitted
+rm: cannot remove `GRIR.wfc185': Operation not permitted
+rm: cannot remove `GRIR.wfc186': Operation not permitted
+rm: cannot remove `GRIR.wfc187': Operation not permitted
+rm: cannot remove `GRIR.wfc188': Operation not permitted
+rm: cannot remove `GRIR.wfc189': Operation not permitted
+rm: cannot remove `GRIR.wfc190': Operation not permitted
+rm: cannot remove `GRIR.wfc191': Operation not permitted
+rm: cannot remove `GRIR.wfc192': Operation not permitted
+rm: cannot remove `lost+found': Permission denied
+node :  k13n19s01
+rm: cannot remove `174717': Permission denied
+rm: cannot remove `lost+found': Permission denied
+node :  k13n19s02
+rm: cannot remove `174717': Permission denied
+rm: cannot remove `lost+found': Permission denied
+node :  k13n23s01
+rm: cannot remove `174720': Permission denied
+rm: cannot remove `lost+found': Permission denied
+node :  k13n24s02
+rm: cannot remove `135032': Permission denied
+rm: cannot remove `174720': Permission denied
+rm: cannot remove `lost+found': Permission denied
+node :  k13n27s01
+rm: cannot remove `174720': Permission denied
+rm: cannot remove `lost+found': Permission denied
+rm: cannot remove `xdtas': Operation not permitted
+node :  k13n28s01
+rm: cannot remove `105674': Permission denied
+rm: cannot remove `lost+found': Permission denied
+rm: cannot remove `xdtas': Operation not permitted
+node :  k13n39s01
+rm: cannot remove `174720': Permission denied
+rm: cannot remove `lost+found': Permission denied
+node :  k14n01s01
+rm: cannot remove `108969': Permission denied
+rm: cannot remove `112801': Permission denied
+rm: cannot remove `120838': Permission denied
+rm: cannot remove `121884': Permission denied
+rm: cannot remove `174720': Permission denied
+rm: cannot remove `GRIR.igk61': Operation not permitted
+rm: cannot remove `GRIR.igk62': Operation not permitted
+rm: cannot remove `GRIR.igk63': Operation not permitted
+rm: cannot remove `GRIR.igk64': Operation not permitted
+rm: cannot remove `GRIR.igk65': Operation not permitted
+rm: cannot remove `GRIR.igk66': Operation not permitted
+rm: cannot remove `GRIR.igk67': Operation not permitted
+rm: cannot remove `GRIR.igk68': Operation not permitted
+rm: cannot remove `GRIR.igk69': Operation not permitted
+rm: cannot remove `GRIR.igk70': Operation not permitted
+rm: cannot remove `GRIR.igk71': Operation not permitted
+rm: cannot remove `GRIR.igk72': Operation not permitted
+rm: cannot remove `GRIR.wfc61': Operation not permitted
+rm: cannot remove `GRIR.wfc62': Operation not permitted
+rm: cannot remove `GRIR.wfc63': Operation not permitted
+rm: cannot remove `GRIR.wfc64': Operation not permitted
+rm: cannot remove `GRIR.wfc65': Operation not permitted
+rm: cannot remove `GRIR.wfc66': Operation not permitted
+rm: cannot remove `GRIR.wfc67': Operation not permitted
+rm: cannot remove `GRIR.wfc68': Operation not permitted
+rm: cannot remove `GRIR.wfc69': Operation not permitted
+rm: cannot remove `GRIR.wfc70': Operation not permitted
+rm: cannot remove `GRIR.wfc71': Operation not permitted
+rm: cannot remove `GRIR.wfc72': Operation not permitted
+rm: cannot remove `lost+found': Permission denied
+rm: cannot remove `xdtas': Operation not permitted
+node :  k14n02s02
+rm: cannot remove `142200': Permission denied
+rm: cannot remove `142890': Permission denied
+rm: cannot remove `174720': Permission denied
+rm: cannot remove `GRIR.igk100': Operation not permitted
+rm: cannot remove `GRIR.igk101': Operation not permitted
+rm: cannot remove `GRIR.igk102': Operation not permitted
+rm: cannot remove `GRIR.igk103': Operation not permitted
+rm: cannot remove `GRIR.igk104': Operation not permitted
+rm: cannot remove `GRIR.igk105': Operation not permitted
+rm: cannot remove `GRIR.igk106': Operation not permitted
+rm: cannot remove `GRIR.igk107': Operation not permitted
+rm: cannot remove `GRIR.igk108': Operation not permitted
+rm: cannot remove `GRIR.igk97': Operation not permitted
+rm: cannot remove `GRIR.igk98': Operation not permitted
+rm: cannot remove `GRIR.igk99': Operation not permitted
+rm: cannot remove `lost+found': Permission denied
+rm: cannot remove `xdtas': Operation not permitted
+node :  k14n03s01
+rm: cannot remove `174720': Permission denied
+rm: cannot remove `GRIR.igk109': Operation not permitted
+rm: cannot remove `GRIR.igk110': Operation not permitted
+rm: cannot remove `GRIR.igk111': Operation not permitted
+rm: cannot remove `GRIR.igk112': Operation not permitted
+rm: cannot remove `GRIR.igk113': Operation not permitted
+rm: cannot remove `GRIR.igk114': Operation not permitted
+rm: cannot remove `GRIR.igk115': Operation not permitted
+rm: cannot remove `GRIR.igk116': Operation not permitted
+rm: cannot remove `GRIR.igk117': Operation not permitted
+rm: cannot remove `GRIR.igk118': Operation not permitted
+rm: cannot remove `GRIR.igk119': Operation not permitted
+rm: cannot remove `GRIR.igk120': Operation not permitted
+rm: cannot remove `lost+found': Permission denied
+rm: cannot remove `xdtas': Operation not permitted
+node :  k14n06s02
+rm: cannot remove `121893': Permission denied
+rm: cannot remove `143362': Permission denied
+rm: cannot remove `174720': Permission denied
+rm: cannot remove `GRIR.igk193': Operation not permitted
+rm: cannot remove `GRIR.igk194': Operation not permitted
+rm: cannot remove `GRIR.igk195': Operation not permitted
+rm: cannot remove `GRIR.igk196': Operation not permitted
+rm: cannot remove `GRIR.igk197': Operation not permitted
+rm: cannot remove `GRIR.igk198': Operation not permitted
+rm: cannot remove `GRIR.igk199': Operation not permitted
+rm: cannot remove `GRIR.igk200': Operation not permitted
+rm: cannot remove `GRIR.igk201': Operation not permitted
+rm: cannot remove `GRIR.igk202': Operation not permitted
+rm: cannot remove `GRIR.igk203': Operation not permitted
+rm: cannot remove `GRIR.igk204': Operation not permitted
+rm: cannot remove `lost+found': Permission denied
+node :  k14n25s01
+rm: cannot remove `174720': Permission denied
+rm: cannot remove `lost+found': Permission denied
+node :  k14n26s01
+rm: cannot remove `174720': Permission denied
+rm: cannot remove `lost+found': Permission denied
+node :  k14n27s01
+rm: cannot remove `132804': Permission denied
+rm: cannot remove `174720': Permission denied
+rm: cannot remove `lost+found': Permission denied
+node :  k14n28s01
+rm: cannot remove `174720': Permission denied
+rm: cannot remove `lost+found': Permission denied
+rm: cannot remove `xdtas': Operation not permitted
+node :  k14n30s01
+rm: cannot remove `123209': Permission denied
+rm: cannot remove `125011': Permission denied
+rm: cannot remove `129089': Permission denied
+rm: cannot remove `174720': Permission denied
+rm: cannot remove `lost+found': Permission denied
+node :  k14n30s02
+rm: cannot remove `148346': Permission denied
+rm: cannot remove `174720': Permission denied
+rm: cannot remove `88626': Permission denied
+rm: cannot remove `lost+found': Permission denied
+rm: cannot remove `xdtas': Operation not permitted
+node :  k14n34s01
+rm: cannot remove `174720': Permission denied
+rm: cannot remove `lost+found': Permission denied
+node :  k14n34s02
+rm: cannot remove `174720': Permission denied
+rm: cannot remove `lost+found': Permission denied
+rm: cannot remove `xdtas': Operation not permitted
+node :  k14n38s02
+rm: cannot remove `lost+found': Permission denied
+rm: cannot remove `xdtas': Operation not permitted
+ name_node =  k07n02s01
+13/08/19 01:21:59 INFO namenode.NameNode: STARTUP_MSG: 
+/************************************************************
+STARTUP_MSG: Starting NameNode
+STARTUP_MSG:   host = k07n02s01/10.111.7.2
+STARTUP_MSG:   args = [-format]
+STARTUP_MSG:   version = 0.20.1
+STARTUP_MSG:   build = http://svn.apache.org/repos/asf/hadoop/common/tags/release-0.20.1-rc1 -r 810220; compiled by 'oom' on Tue Sep  1 20:55:56 UTC 2009
+************************************************************/
+13/08/19 01:21:59 INFO namenode.FSNamesystem: fsOwner=shivaswa,abani,u2,netezza,di2
+13/08/19 01:21:59 INFO namenode.FSNamesystem: supergroup=supergroup
+13/08/19 01:21:59 INFO namenode.FSNamesystem: isPermissionEnabled=false
+13/08/19 01:21:59 INFO common.Storage: Image file of size 98 saved in 0 seconds.
+13/08/19 01:21:59 INFO common.Storage: Storage directory /scratch/hadoop-shivaswa/dfs/name has been successfully formatted.
+13/08/19 01:21:59 INFO namenode.NameNode: SHUTDOWN_MSG: 
+/************************************************************
+SHUTDOWN_MSG: Shutting down NameNode at k07n02s01/10.111.7.2
+************************************************************/
+starting namenode, logging to /scratch/k07n02s01/hadoop-shivaswa_k07n02s01-namenode-k07n02s01.out
+k14n25s01: starting datanode, logging to /scratch/k14n25s01/hadoop-shivaswa_k14n25s01-datanode-k14n25s01.out
+k14n30s01: starting datanode, logging to /scratch/k14n30s01/hadoop-shivaswa_k14n30s01-datanode-k14n30s01.out
+k14n26s01: starting datanode, logging to /scratch/k14n26s01/hadoop-shivaswa_k14n26s01-datanode-k14n26s01.out
+k14n27s01: starting datanode, logging to /scratch/k14n27s01/hadoop-shivaswa_k14n27s01-datanode-k14n27s01.out
+k14n28s01: starting datanode, logging to /scratch/k14n28s01/hadoop-shivaswa_k14n28s01-datanode-k14n28s01.out
+k14n34s01: starting datanode, logging to /scratch/k14n34s01/hadoop-shivaswa_k14n34s01-datanode-k14n34s01.out
+k14n06s02: starting datanode, logging to /scratch/k14n06s02/hadoop-shivaswa_k14n06s02-datanode-k14n06s02.out
+k10n38s02: starting datanode, logging to /scratch/k10n38s02/hadoop-shivaswa_k10n38s02-datanode-k10n38s02.out
+k14n01s01: starting datanode, logging to /scratch/k14n01s01/hadoop-shivaswa_k14n01s01-datanode-k14n01s01.out
+k13n07s02: starting datanode, logging to /scratch/k13n07s02/hadoop-shivaswa_k13n07s02-datanode-k13n07s02.out
+k14n30s02: starting datanode, logging to /scratch/k14n30s02/hadoop-shivaswa_k14n30s02-datanode-k14n30s02.out
+k10n40s02: starting datanode, logging to /scratch/k10n40s02/hadoop-shivaswa_k10n40s02-datanode-k10n40s02.out
+k14n03s01: starting datanode, logging to /scratch/k14n03s01/hadoop-shivaswa_k14n03s01-datanode-k14n03s01.out
+k13n24s02: starting datanode, logging to /scratch/k13n24s02/hadoop-shivaswa_k13n24s02-datanode-k13n24s02.out
+k14n02s02: starting datanode, logging to /scratch/k14n02s02/hadoop-shivaswa_k14n02s02-datanode-k14n02s02.out
+k14n34s02: starting datanode, logging to /scratch/k14n34s02/hadoop-shivaswa_k14n34s02-datanode-k14n34s02.out
+k11n24s01: starting datanode, logging to /scratch/k11n24s01/hadoop-shivaswa_k11n24s01-datanode-k11n24s01.out
+k10n41s02: starting datanode, logging to /scratch/k10n41s02/hadoop-shivaswa_k10n41s02-datanode-k10n41s02.out
+k13n19s01: starting datanode, logging to /scratch/k13n19s01/hadoop-shivaswa_k13n19s01-datanode-k13n19s01.out
+k13n28s01: starting datanode, logging to /scratch/k13n28s01/hadoop-shivaswa_k13n28s01-datanode-k13n28s01.out
+k13n27s01: starting datanode, logging to /scratch/k13n27s01/hadoop-shivaswa_k13n27s01-datanode-k13n27s01.out
+k10n40s01: starting datanode, logging to /scratch/k10n40s01/hadoop-shivaswa_k10n40s01-datanode-k10n40s01.out
+k13n39s01: starting datanode, logging to /scratch/k13n39s01/hadoop-shivaswa_k13n39s01-datanode-k13n39s01.out
+k10n37s01: starting datanode, logging to /scratch/k10n37s01/hadoop-shivaswa_k10n37s01-datanode-k10n37s01.out
+k11n25s02: starting datanode, logging to /scratch/k11n25s02/hadoop-shivaswa_k11n25s02-datanode-k11n25s02.out
+k13n23s01: starting datanode, logging to /scratch/k13n23s01/hadoop-shivaswa_k13n23s01-datanode-k13n23s01.out
+k11n23s01: starting datanode, logging to /scratch/k11n23s01/hadoop-shivaswa_k11n23s01-datanode-k11n23s01.out
+k14n38s02: starting datanode, logging to /scratch/k14n38s02/hadoop-shivaswa_k14n38s02-datanode-k14n38s02.out
+k13n19s02: starting datanode, logging to /scratch/k13n19s02/hadoop-shivaswa_k13n19s02-datanode-k13n19s02.out
+k07n02s01: starting secondarynamenode, logging to /scratch/k07n02s01/hadoop-shivaswa_k07n02s01-secondarynamenode-k07n02s01.out
+job_tracker =  k07n02s01
+starting jobtracker, logging to /scratch/k07n02s01/hadoop-shivaswa_k07n02s01-jobtracker-k07n02s01.out
+k10n40s02: starting tasktracker, logging to /scratch/k10n40s02/hadoop-shivaswa_k10n40s02-tasktracker-k10n40s02.out
+k14n03s01: starting tasktracker, logging to /scratch/k14n03s01/hadoop-shivaswa_k14n03s01-tasktracker-k14n03s01.out
+k14n34s02: starting tasktracker, logging to /scratch/k14n34s02/hadoop-shivaswa_k14n34s02-tasktracker-k14n34s02.out
+k14n26s01: starting tasktracker, logging to /scratch/k14n26s01/hadoop-shivaswa_k14n26s01-tasktracker-k14n26s01.out
+k13n23s01: starting tasktracker, logging to /scratch/k13n23s01/hadoop-shivaswa_k13n23s01-tasktracker-k13n23s01.out
+k13n19s02: starting tasktracker, logging to /scratch/k13n19s02/hadoop-shivaswa_k13n19s02-tasktracker-k13n19s02.out
+k14n27s01: starting tasktracker, logging to /scratch/k14n27s01/hadoop-shivaswa_k14n27s01-tasktracker-k14n27s01.out
+k14n34s01: starting tasktracker, logging to /scratch/k14n34s01/hadoop-shivaswa_k14n34s01-tasktracker-k14n34s01.out
+k11n23s01: starting tasktracker, logging to /scratch/k11n23s01/hadoop-shivaswa_k11n23s01-tasktracker-k11n23s01.out
+k11n24s01: starting tasktracker, logging to /scratch/k11n24s01/hadoop-shivaswa_k11n24s01-tasktracker-k11n24s01.out
+k13n27s01: starting tasktracker, logging to /scratch/k13n27s01/hadoop-shivaswa_k13n27s01-tasktracker-k13n27s01.out
+k13n07s02: starting tasktracker, logging to /scratch/k13n07s02/hadoop-shivaswa_k13n07s02-tasktracker-k13n07s02.out
+k14n06s02: starting tasktracker, logging to /scratch/k14n06s02/hadoop-shivaswa_k14n06s02-tasktracker-k14n06s02.out
+k14n30s01: starting tasktracker, logging to /scratch/k14n30s01/hadoop-shivaswa_k14n30s01-tasktracker-k14n30s01.out
+k10n40s01: starting tasktracker, logging to /scratch/k10n40s01/hadoop-shivaswa_k10n40s01-tasktracker-k10n40s01.out
+k10n37s01: starting tasktracker, logging to /scratch/k10n37s01/hadoop-shivaswa_k10n37s01-tasktracker-k10n37s01.out
+k14n38s02: starting tasktracker, logging to /scratch/k14n38s02/hadoop-shivaswa_k14n38s02-tasktracker-k14n38s02.out
+k10n38s02: starting tasktracker, logging to /scratch/k10n38s02/hadoop-shivaswa_k10n38s02-tasktracker-k10n38s02.out
+k14n28s01: starting tasktracker, logging to /scratch/k14n28s01/hadoop-shivaswa_k14n28s01-tasktracker-k14n28s01.out
+k13n19s01: starting tasktracker, logging to /scratch/k13n19s01/hadoop-shivaswa_k13n19s01-tasktracker-k13n19s01.out
+k10n41s02: starting tasktracker, logging to /scratch/k10n41s02/hadoop-shivaswa_k10n41s02-tasktracker-k10n41s02.out
+k13n39s01: starting tasktracker, logging to /scratch/k13n39s01/hadoop-shivaswa_k13n39s01-tasktracker-k13n39s01.out
+k13n24s02: starting tasktracker, logging to /scratch/k13n24s02/hadoop-shivaswa_k13n24s02-tasktracker-k13n24s02.out
+k14n01s01: starting tasktracker, logging to /scratch/k14n01s01/hadoop-shivaswa_k14n01s01-tasktracker-k14n01s01.out
+k13n28s01: starting tasktracker, logging to /scratch/k13n28s01/hadoop-shivaswa_k13n28s01-tasktracker-k13n28s01.out
+k14n30s02: starting tasktracker, logging to /scratch/k14n30s02/hadoop-shivaswa_k14n30s02-tasktracker-k14n30s02.out
+k14n25s01: starting tasktracker, logging to /scratch/k14n25s01/hadoop-shivaswa_k14n25s01-tasktracker-k14n25s01.out
+k14n02s02: starting tasktracker, logging to /scratch/k14n02s02/hadoop-shivaswa_k14n02s02-tasktracker-k14n02s02.out
+k11n25s02: starting tasktracker, logging to /scratch/k11n25s02/hadoop-shivaswa_k11n25s02-tasktracker-k11n25s02.out
+packageJobJar: [/user/shivaswa/my_hadoop/map6.py, /user/shivaswa/my_hadoop/reduce3.py, /user/shivaswa/my_hadoop/neighbor.py, /user/shivaswa/my_hadoop/parser.py, /user/shivaswa/my_hadoop/build_data_set.py, /scratch/hadoop-shivaswa/hadoop-unjar6609760582984576684/] [] /tmp/streamjob3587769274795368577.jar tmpDir=null
+13/08/19 05:07:42 INFO mapred.FileInputFormat: Total input paths to process : 16805
+13/08/19 05:07:48 INFO streaming.StreamJob: getLocalDirs(): [/scratch/hadoop-shivaswa/mapred/local]
+13/08/19 05:07:48 INFO streaming.StreamJob: Running job: job_201308190122_0001
+13/08/19 05:07:48 INFO streaming.StreamJob: To kill this job, run:
+13/08/19 05:07:48 INFO streaming.StreamJob: /user/shivaswa/hadoop-0.20.1/bin/hadoop job  -Dmapred.job.tracker=k07n02s01:9124 -kill job_201308190122_0001
+13/08/19 05:07:48 INFO streaming.StreamJob: Tracking URL: http://k07n02s01.ccr.buffalo.edu:50030/jobdetails.jsp?jobid=job_201308190122_0001
+13/08/19 05:07:49 INFO streaming.StreamJob:  map 0%  reduce 0%
+13/08/19 05:08:33 INFO streaming.StreamJob:  map 1%  reduce 0%
+13/08/19 05:09:45 INFO streaming.StreamJob:  map 2%  reduce 0%
+13/08/19 05:10:56 INFO streaming.StreamJob:  map 3%  reduce 0%
+13/08/19 05:12:08 INFO streaming.StreamJob:  map 4%  reduce 0%
+13/08/19 05:13:20 INFO streaming.StreamJob:  map 5%  reduce 0%
+13/08/19 05:14:36 INFO streaming.StreamJob:  map 6%  reduce 0%
+13/08/19 05:14:44 INFO streaming.StreamJob:  map 6%  reduce 1%
+13/08/19 05:15:47 INFO streaming.StreamJob:  map 7%  reduce 1%
+13/08/19 05:16:58 INFO streaming.StreamJob:  map 8%  reduce 1%
+13/08/19 05:18:10 INFO streaming.StreamJob:  map 9%  reduce 1%
+13/08/19 05:19:22 INFO streaming.StreamJob:  map 10%  reduce 1%
+13/08/19 05:20:33 INFO streaming.StreamJob:  map 11%  reduce 1%
+13/08/19 05:21:45 INFO streaming.StreamJob:  map 12%  reduce 1%
+13/08/19 05:22:55 INFO streaming.StreamJob:  map 13%  reduce 1%
+13/08/19 05:24:06 INFO streaming.StreamJob:  map 14%  reduce 1%
+13/08/19 05:25:14 INFO streaming.StreamJob:  map 15%  reduce 1%
+13/08/19 05:26:23 INFO streaming.StreamJob:  map 16%  reduce 1%
+13/08/19 05:27:19 INFO streaming.StreamJob:  map 16%  reduce 2%
+13/08/19 05:27:31 INFO streaming.StreamJob:  map 17%  reduce 2%
+13/08/19 05:28:40 INFO streaming.StreamJob:  map 18%  reduce 2%
+13/08/19 05:29:48 INFO streaming.StreamJob:  map 19%  reduce 2%
+13/08/19 05:30:55 INFO streaming.StreamJob:  map 20%  reduce 2%
+13/08/19 05:32:02 INFO streaming.StreamJob:  map 21%  reduce 2%
+13/08/19 05:33:10 INFO streaming.StreamJob:  map 22%  reduce 2%
+13/08/19 05:34:17 INFO streaming.StreamJob:  map 23%  reduce 2%
+13/08/19 05:35:23 INFO streaming.StreamJob:  map 24%  reduce 2%
+13/08/19 05:36:28 INFO streaming.StreamJob:  map 25%  reduce 2%
+13/08/19 05:37:35 INFO streaming.StreamJob:  map 26%  reduce 2%
+13/08/19 05:38:42 INFO streaming.StreamJob:  map 27%  reduce 2%
+13/08/19 05:39:18 INFO streaming.StreamJob:  map 27%  reduce 3%
+13/08/19 05:39:46 INFO streaming.StreamJob:  map 28%  reduce 3%
+13/08/19 05:40:50 INFO streaming.StreamJob:  map 29%  reduce 3%
+13/08/19 05:41:54 INFO streaming.StreamJob:  map 30%  reduce 3%
+13/08/19 05:42:59 INFO streaming.StreamJob:  map 31%  reduce 3%
+13/08/19 05:44:05 INFO streaming.StreamJob:  map 32%  reduce 3%
+13/08/19 05:45:08 INFO streaming.StreamJob:  map 33%  reduce 3%
+13/08/19 05:46:11 INFO streaming.StreamJob:  map 34%  reduce 3%
+13/08/19 05:47:14 INFO streaming.StreamJob:  map 35%  reduce 3%
+13/08/19 05:48:17 INFO streaming.StreamJob:  map 36%  reduce 3%
+13/08/19 05:49:20 INFO streaming.StreamJob:  map 37%  reduce 3%
+13/08/19 05:50:21 INFO streaming.StreamJob:  map 38%  reduce 3%
+13/08/19 05:50:39 INFO streaming.StreamJob:  map 38%  reduce 4%
+13/08/19 05:51:23 INFO streaming.StreamJob:  map 39%  reduce 4%
+13/08/19 05:52:24 INFO streaming.StreamJob:  map 40%  reduce 4%
+13/08/19 05:53:27 INFO streaming.StreamJob:  map 41%  reduce 4%
+13/08/19 05:54:27 INFO streaming.StreamJob:  map 42%  reduce 4%
+13/08/19 05:55:28 INFO streaming.StreamJob:  map 43%  reduce 4%
+13/08/19 05:56:27 INFO streaming.StreamJob:  map 44%  reduce 4%
+13/08/19 05:57:27 INFO streaming.StreamJob:  map 45%  reduce 4%
+13/08/19 05:58:29 INFO streaming.StreamJob:  map 46%  reduce 4%
+13/08/19 05:59:29 INFO streaming.StreamJob:  map 47%  reduce 4%
+13/08/19 06:00:26 INFO streaming.StreamJob:  map 48%  reduce 4%
+13/08/19 06:01:25 INFO streaming.StreamJob:  map 49%  reduce 5%
+13/08/19 06:02:23 INFO streaming.StreamJob:  map 50%  reduce 5%
+13/08/19 06:03:23 INFO streaming.StreamJob:  map 51%  reduce 5%
+13/08/19 06:04:20 INFO streaming.StreamJob:  map 52%  reduce 5%
+13/08/19 06:05:18 INFO streaming.StreamJob:  map 53%  reduce 5%
+13/08/19 06:06:15 INFO streaming.StreamJob:  map 54%  reduce 5%
+13/08/19 06:07:12 INFO streaming.StreamJob:  map 55%  reduce 5%
+13/08/19 06:08:12 INFO streaming.StreamJob:  map 56%  reduce 5%
+13/08/19 06:09:08 INFO streaming.StreamJob:  map 57%  reduce 5%
+13/08/19 06:10:04 INFO streaming.StreamJob:  map 58%  reduce 5%
+13/08/19 06:11:01 INFO streaming.StreamJob:  map 59%  reduce 5%
+13/08/19 06:11:42 INFO streaming.StreamJob:  map 59%  reduce 6%
+13/08/19 06:11:58 INFO streaming.StreamJob:  map 60%  reduce 6%
+13/08/19 06:12:57 INFO streaming.StreamJob:  map 61%  reduce 6%
+13/08/19 06:13:54 INFO streaming.StreamJob:  map 62%  reduce 6%
+13/08/19 06:14:49 INFO streaming.StreamJob:  map 63%  reduce 6%
+13/08/19 06:15:44 INFO streaming.StreamJob:  map 64%  reduce 6%
+13/08/19 06:16:40 INFO streaming.StreamJob:  map 65%  reduce 6%
+13/08/19 06:17:35 INFO streaming.StreamJob:  map 66%  reduce 6%
+13/08/19 06:18:32 INFO streaming.StreamJob:  map 67%  reduce 6%
+13/08/19 06:19:26 INFO streaming.StreamJob:  map 68%  reduce 6%
+13/08/19 06:20:20 INFO streaming.StreamJob:  map 69%  reduce 6%
+13/08/19 06:21:12 INFO streaming.StreamJob:  map 70%  reduce 6%
+13/08/19 06:21:34 INFO streaming.StreamJob:  map 70%  reduce 7%
+13/08/19 06:22:04 INFO streaming.StreamJob:  map 71%  reduce 7%
+13/08/19 06:22:58 INFO streaming.StreamJob:  map 72%  reduce 7%
+13/08/19 06:23:49 INFO streaming.StreamJob:  map 73%  reduce 7%
+13/08/19 06:24:36 INFO streaming.StreamJob:  map 74%  reduce 7%
+13/08/19 06:25:26 INFO streaming.StreamJob:  map 75%  reduce 7%
+13/08/19 06:26:16 INFO streaming.StreamJob:  map 76%  reduce 7%
+13/08/19 06:27:04 INFO streaming.StreamJob:  map 77%  reduce 7%
+13/08/19 06:27:53 INFO streaming.StreamJob:  map 78%  reduce 7%
+13/08/19 06:28:37 INFO streaming.StreamJob:  map 79%  reduce 7%
+13/08/19 06:29:20 INFO streaming.StreamJob:  map 80%  reduce 7%
+13/08/19 06:30:08 INFO streaming.StreamJob:  map 81%  reduce 7%
+13/08/19 06:30:16 INFO streaming.StreamJob:  map 81%  reduce 8%
+13/08/19 06:30:56 INFO streaming.StreamJob:  map 82%  reduce 8%
+13/08/19 06:31:41 INFO streaming.StreamJob:  map 83%  reduce 8%
+13/08/19 06:32:26 INFO streaming.StreamJob:  map 84%  reduce 8%
+13/08/19 06:33:07 INFO streaming.StreamJob:  map 85%  reduce 8%
+13/08/19 06:33:43 INFO streaming.StreamJob:  map 86%  reduce 8%
+13/08/19 06:34:17 INFO streaming.StreamJob:  map 87%  reduce 8%
+13/08/19 06:34:52 INFO streaming.StreamJob:  map 88%  reduce 8%
+13/08/19 06:35:22 INFO streaming.StreamJob:  map 89%  reduce 8%
+13/08/19 06:35:53 INFO streaming.StreamJob:  map 90%  reduce 8%
+13/08/19 06:36:30 INFO streaming.StreamJob:  map 91%  reduce 8%
+13/08/19 06:37:04 INFO streaming.StreamJob:  map 91%  reduce 9%
+13/08/19 06:37:09 INFO streaming.StreamJob:  map 92%  reduce 9%
+13/08/19 06:37:52 INFO streaming.StreamJob:  map 93%  reduce 9%
+13/08/19 06:38:29 INFO streaming.StreamJob:  map 94%  reduce 9%
+13/08/19 06:39:07 INFO streaming.StreamJob:  map 95%  reduce 9%
+13/08/19 06:39:45 INFO streaming.StreamJob:  map 96%  reduce 9%
+13/08/19 06:40:42 INFO streaming.StreamJob:  map 97%  reduce 9%
+13/08/19 06:41:24 INFO streaming.StreamJob:  map 98%  reduce 9%
+13/08/19 06:41:45 INFO streaming.StreamJob:  map 99%  reduce 9%
+13/08/19 06:41:56 INFO streaming.StreamJob:  map 100%  reduce 9%
+13/08/19 06:42:07 INFO streaming.StreamJob:  map 100%  reduce 10%
+13/08/19 06:42:09 INFO streaming.StreamJob:  map 100%  reduce 11%
+13/08/19 06:42:10 INFO streaming.StreamJob:  map 100%  reduce 12%
+13/08/19 06:42:11 INFO streaming.StreamJob:  map 100%  reduce 14%
+13/08/19 06:42:12 INFO streaming.StreamJob:  map 100%  reduce 15%
+13/08/19 06:42:13 INFO streaming.StreamJob:  map 100%  reduce 18%
+13/08/19 06:42:16 INFO streaming.StreamJob:  map 100%  reduce 19%
+13/08/19 06:49:32 INFO streaming.StreamJob:  map 100%  reduce 20%
+13/08/19 06:58:29 INFO streaming.StreamJob:  map 100%  reduce 21%
+13/08/19 07:07:15 INFO streaming.StreamJob:  map 100%  reduce 22%
+13/08/19 07:15:58 INFO streaming.StreamJob:  map 100%  reduce 23%
+13/08/19 07:24:41 INFO streaming.StreamJob:  map 100%  reduce 24%
+13/08/19 07:33:30 INFO streaming.StreamJob:  map 100%  reduce 25%
+13/08/19 07:42:08 INFO streaming.StreamJob:  map 100%  reduce 26%
+13/08/19 07:50:16 INFO streaming.StreamJob:  map 100%  reduce 27%
+13/08/19 07:58:29 INFO streaming.StreamJob:  map 100%  reduce 28%
+13/08/19 08:02:02 INFO streaming.StreamJob:  map 100%  reduce 29%
+13/08/19 08:02:39 INFO streaming.StreamJob:  map 100%  reduce 30%
+13/08/19 08:03:05 INFO streaming.StreamJob:  map 100%  reduce 31%
+13/08/19 08:03:29 INFO streaming.StreamJob:  map 100%  reduce 32%
+13/08/19 08:03:48 INFO streaming.StreamJob:  map 100%  reduce 33%
+13/08/19 08:04:08 INFO streaming.StreamJob:  map 100%  reduce 34%
+13/08/19 08:04:28 INFO streaming.StreamJob:  map 100%  reduce 35%
+13/08/19 08:04:49 INFO streaming.StreamJob:  map 100%  reduce 36%
+13/08/19 08:05:05 INFO streaming.StreamJob:  map 100%  reduce 37%
+13/08/19 08:05:14 INFO streaming.StreamJob:  map 100%  reduce 38%
+13/08/19 08:05:27 INFO streaming.StreamJob:  map 100%  reduce 39%
+13/08/19 08:05:46 INFO streaming.StreamJob:  map 100%  reduce 40%
+13/08/19 08:06:01 INFO streaming.StreamJob:  map 100%  reduce 41%
+13/08/19 08:06:11 INFO streaming.StreamJob:  map 100%  reduce 42%
+13/08/19 08:06:20 INFO streaming.StreamJob:  map 100%  reduce 43%
+13/08/19 08:06:33 INFO streaming.StreamJob:  map 100%  reduce 44%
+13/08/19 08:06:45 INFO streaming.StreamJob:  map 100%  reduce 45%
+13/08/19 08:06:58 INFO streaming.StreamJob:  map 100%  reduce 46%
+13/08/19 08:07:56 INFO streaming.StreamJob:  map 100%  reduce 47%
+13/08/19 08:13:48 INFO streaming.StreamJob:  map 100%  reduce 48%
+13/08/19 08:22:39 INFO streaming.StreamJob:  map 100%  reduce 49%
+13/08/19 08:31:20 INFO streaming.StreamJob:  map 100%  reduce 50%
+13/08/19 08:39:55 INFO streaming.StreamJob:  map 100%  reduce 51%
+13/08/19 08:48:30 INFO streaming.StreamJob:  map 100%  reduce 52%
+13/08/19 08:57:11 INFO streaming.StreamJob:  map 100%  reduce 53%
+13/08/19 09:05:40 INFO streaming.StreamJob:  map 100%  reduce 54%
+13/08/19 09:13:34 INFO streaming.StreamJob:  map 100%  reduce 55%
+13/08/19 09:21:35 INFO streaming.StreamJob:  map 100%  reduce 56%
+13/08/19 09:25:31 INFO streaming.StreamJob:  map 100%  reduce 57%
+13/08/19 09:26:12 INFO streaming.StreamJob:  map 100%  reduce 58%
+13/08/19 09:26:43 INFO streaming.StreamJob:  map 100%  reduce 59%
+13/08/19 09:27:07 INFO streaming.StreamJob:  map 100%  reduce 60%
+13/08/19 09:27:26 INFO streaming.StreamJob:  map 100%  reduce 61%
+13/08/19 09:27:40 INFO streaming.StreamJob:  map 100%  reduce 62%
+13/08/19 09:27:55 INFO streaming.StreamJob:  map 100%  reduce 63%
+13/08/19 09:28:05 INFO streaming.StreamJob:  map 100%  reduce 64%
+13/08/19 09:28:26 INFO streaming.StreamJob:  map 100%  reduce 65%
+13/08/19 09:28:51 INFO streaming.StreamJob:  map 100%  reduce 66%
+13/08/19 09:29:04 INFO streaming.StreamJob:  map 100%  reduce 67%
+13/08/19 09:29:14 INFO streaming.StreamJob:  map 100%  reduce 68%
+13/08/19 09:29:38 INFO streaming.StreamJob:  map 100%  reduce 69%
+13/08/19 09:29:51 INFO streaming.StreamJob:  map 100%  reduce 70%
+13/08/19 09:30:37 INFO streaming.StreamJob:  map 100%  reduce 71%
+13/08/19 09:30:44 INFO streaming.StreamJob:  map 100%  reduce 72%
+13/08/19 09:30:56 INFO streaming.StreamJob:  map 100%  reduce 73%
+13/08/19 09:31:27 INFO streaming.StreamJob:  map 100%  reduce 74%
+13/08/19 09:33:07 INFO streaming.StreamJob:  map 100%  reduce 75%
+13/08/19 09:36:39 INFO streaming.StreamJob:  map 100%  reduce 76%
+13/08/19 09:45:29 INFO streaming.StreamJob:  map 100%  reduce 77%
+13/08/19 09:54:10 INFO streaming.StreamJob:  map 100%  reduce 78%
+13/08/19 10:02:45 INFO streaming.StreamJob:  map 100%  reduce 79%
+13/08/19 10:11:20 INFO streaming.StreamJob:  map 100%  reduce 80%
+13/08/19 10:20:01 INFO streaming.StreamJob:  map 100%  reduce 81%
+13/08/19 10:28:33 INFO streaming.StreamJob:  map 100%  reduce 82%
+13/08/19 10:36:30 INFO streaming.StreamJob:  map 100%  reduce 83%
+13/08/19 10:44:29 INFO streaming.StreamJob:  map 100%  reduce 84%
+13/08/19 10:48:34 INFO streaming.StreamJob:  map 100%  reduce 85%
+13/08/19 10:49:30 INFO streaming.StreamJob:  map 100%  reduce 86%
+13/08/19 10:50:11 INFO streaming.StreamJob:  map 100%  reduce 87%
+13/08/19 10:50:33 INFO streaming.StreamJob:  map 100%  reduce 88%
+13/08/19 10:50:50 INFO streaming.StreamJob:  map 100%  reduce 89%
+13/08/19 10:51:07 INFO streaming.StreamJob:  map 100%  reduce 90%
+13/08/19 10:51:31 INFO streaming.StreamJob:  map 100%  reduce 91%
+13/08/19 10:52:01 INFO streaming.StreamJob:  map 100%  reduce 92%
+13/08/19 10:52:29 INFO streaming.StreamJob:  map 100%  reduce 93%
+13/08/19 10:52:50 INFO streaming.StreamJob:  map 100%  reduce 94%
+13/08/19 10:53:46 INFO streaming.StreamJob:  map 100%  reduce 95%
+13/08/19 11:01:47 INFO streaming.StreamJob:  map 100%  reduce 96%
+13/08/19 11:17:02 INFO streaming.StreamJob:  map 100%  reduce 97%
+13/08/19 11:32:01 INFO streaming.StreamJob:  map 100%  reduce 98%
+13/08/19 11:47:09 INFO streaming.StreamJob:  map 100%  reduce 99%
+13/08/19 12:01:11 INFO streaming.StreamJob:  map 100%  reduce 100%
+13/08/19 12:15:07 INFO streaming.StreamJob: Job complete: job_201308190122_0001
+13/08/19 12:15:07 INFO streaming.StreamJob: Output: /phm_resample_mean
+cat: MY_NODE_LIST: No such file or directory
+job_tracker =  k07n02s01
+stopping jobtracker
+k13n27s01: stopping tasktracker
+k10n38s02: stopping tasktracker
+k14n30s02: stopping tasktracker
+k11n25s02: stopping tasktracker
+k14n01s01: stopping tasktracker
+k13n28s01: stopping tasktracker
+k14n27s01: stopping tasktracker
+k14n02s02: stopping tasktracker
+k14n30s01: stopping tasktracker
+k13n39s01: stopping tasktracker
+k14n03s01: stopping tasktracker
+k10n40s01: stopping tasktracker
+k10n37s01: stopping tasktracker
+k14n06s02: stopping tasktracker
+k14n26s01: stopping tasktracker
+k13n07s02: stopping tasktracker
+k14n34s01: stopping tasktracker
+k14n25s01: stopping tasktracker
+k14n28s01: stopping tasktracker
+k14n34s02: stopping tasktracker
+k14n38s02: stopping tasktracker
+k13n24s02: stopping tasktracker
+k13n19s01: stopping tasktracker
+k13n23s01: stopping tasktracker
+k10n40s02: stopping tasktracker
+k11n24s01: stopping tasktracker
+k13n19s02: stopping tasktracker
+k11n23s01: stopping tasktracker
+k10n41s02: stopping tasktracker
+name_node =  k07n02s01
+stopping namenode
+k13n19s02: stopping datanode
+k10n38s02: stopping datanode
+k13n23s01: stopping datanode
+k14n01s01: stopping datanode
+k13n19s01: stopping datanode
+k14n30s02: stopping datanode
+k13n07s02: stopping datanode
+k14n25s01: stopping datanode
+k14n02s02: stopping datanode
+k10n41s02: stopping datanode
+k14n30s01: stopping datanode
+k14n26s01: stopping datanode
+k13n39s01: stopping datanode
+k11n24s01: stopping datanode
+k14n27s01: stopping datanode
+k10n37s01: stopping datanode
+k14n38s02: stopping datanode
+k14n03s01: stopping datanode
+k14n34s01: stopping datanode
+k10n40s02: stopping datanode
+k11n25s02: stopping datanode
+k10n40s01: stopping datanode
+k13n27s01: stopping datanode
+k14n06s02: stopping datanode
+k13n24s02: stopping datanode
+k14n28s01: stopping datanode
+k11n23s01: stopping datanode
+k14n34s02: stopping datanode
+k13n28s01: stopping datanode
+k07n02s01: stopping secondarynamenode

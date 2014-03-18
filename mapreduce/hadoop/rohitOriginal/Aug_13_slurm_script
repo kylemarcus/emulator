@@ -1,0 +1,33 @@
+#!/bin/sh
+#SBATCH --partition=general-compute
+##SBATCH --partition=debug
+#SBATCH --time=05:00:00
+#SBATCH --nodes=30
+#SBATCH --ntasks-per-node=2
+#SBATCH --job-name="13_Aug_output"
+#SBATCH --output=13_Aug_output
+#SBATCH --mail-user=shivaswa@buffalo.edu
+#SBATCH --mail-type=ALL
+##SBATCH --requeue
+
+#Specifies that the job will be requeued after a node failure.
+#The default is that the job will not be requeued.
+cd ~/my_hadoop
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/util/intel/Compiler/11.0/083/mkl/lib/em64t/
+
+echo "SLURM_JOB_ID="$SLURM_JOB_ID
+echo "SLURM_JOB_NODELIST"=$SLURM_JOB_NODELIST
+echo "SLURM_NNODES"=$SLURM_NNODES
+echo "SLURMTMPDIR="$SLURMTMPDIR
+echo $SLURM_JOB_NODELIST | python node_list.py > MY_NODE_LIST
+
+
+cd $SLURM_SUBMIT_DIR
+echo "working directory = "$SLURM_SUBMIT_DIR
+module load intel
+module load mkl/11.0
+module load intel-mpi/4.0.3
+export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
+
+srun ./downsample_debug 16000 file_list
