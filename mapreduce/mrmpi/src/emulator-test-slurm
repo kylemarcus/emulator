@@ -1,0 +1,37 @@
+#!/bin/sh
+#SBATCH --partition=general-compute
+#SBATCH --time=24:00:00
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=12
+#SBATCH --mem=48000
+#SBATCH --job-name="emulator-70..348"
+#SBATCH --output=emulator-70..348.out
+#SBATCH --mail-user=kmarcus2@buffalo.edu
+#SBATCH --mail-type=ALL
+#SBATCH --exclusive
+
+echo "SLURM_JOBID="$SLURM_JOBID
+echo "SLURM_JOB_NODELIST"=$SLURM_JOB_NODELIST
+echo "SLURM_NNODES"=$SLURM_NNODES
+echo "SLURMTMPDIR="$SLURMTMPDIR
+
+cd $SLURM_SUBMIT_DIR
+echo "working directory = "$SLURM_SUBMIT_DIR
+
+module load intel
+module load python-epd/7.1.2
+
+ulimit -s unlimited
+
+echo "Launch emulator 70 78 86 94 340 348"
+
+python emulator.py /panasas/scratch/kmarcus2/emulator/my_hadoop/down_sample_files_mod/downsample000070.txt | ./newEmulator &
+python emulator.py /panasas/scratch/kmarcus2/emulator/my_hadoop/down_sample_files_mod/downsample000078.txt | ./newEmulator &
+python emulator.py /panasas/scratch/kmarcus2/emulator/my_hadoop/down_sample_files_mod/downsample000086.txt | ./newEmulator &
+python emulator.py /panasas/scratch/kmarcus2/emulator/my_hadoop/down_sample_files_mod/downsample000094.txt | ./newEmulator &
+python emulator.py /panasas/scratch/kmarcus2/emulator/my_hadoop/down_sample_files_mod/downsample000340.txt | ./newEmulator &
+python emulator.py /panasas/scratch/kmarcus2/emulator/my_hadoop/down_sample_files_mod/downsample000348.txt | ./newEmulator &
+
+wait
+
+echo done
