@@ -16,7 +16,7 @@ def get_list_intersection(my_list1,my_list2):
 
 def extract_downsampled_data(sample):
     #filename = '/panasas/scratch/shivaswa/emulator/my_hadoop/down_sample_files/downsample%0.6d.txt' %sample
-    filename = '/panasas/scratch/kmarcus2/emulator/my_hadoop/down_sample_files_2000/downsample%0.6d.txt' %sample
+    filename = '/panasas/scratch/kmarcus2/emulator/my_hadoop/down_sample_files_mod/downsample%0.6d.txt' %sample
     fp = open(filename,'r')
     down_data_file = DataRead()
     down_data = down_data_file.load_from_file(fp)

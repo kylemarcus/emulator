@@ -1,0 +1,70 @@
+#!/bin/sh
+#SBATCH --partition=general-compute
+#SBATCH --time=24:00:00
+#SBATCH --nodes=43
+#SBATCH --ntasks-per-node=12
+#SBATCH --mem=48000
+#SBATCH --job-name="emulator-mrmpi"
+#SBATCH --output=emulator-mrmpi-slurm.out
+#SBATCH --mail-user=kmarcus2@buffalo.edu
+#SBATCH --mail-type=ALL
+#SBATCH --exclusive
+
+echo "SLURM_JOBID="$SLURM_JOBID
+echo "SLURM_JOB_NODELIST"=$SLURM_JOB_NODELIST
+echo "SLURM_NNODES"=$SLURM_NNODES
+echo "SLURMTMPDIR="$SLURMTMPDIR
+
+cd $SLURM_SUBMIT_DIR
+echo "working directory = "$SLURM_SUBMIT_DIR
+
+module load intel
+module load intel-mpi
+module load python-epd/7.1.2
+module load use.own
+module load mrmpi-python
+
+ulimit -s unlimited
+
+cd /scratch
+
+echo cleaning files from scratch
+
+for h in `scontrol show hostname $SLURM_JOB_NODELIST`
+do
+    ssh $h "/user/kmarcus2/emulator/mapreduce/mrmpi/src/newReduce/clean.sh" &
+done
+wait
+
+pwd
+
+export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
+#srun -n 512
+#srun python emulator-mrmpi-new.py /panasas/scratch/kmarcus2/emulator/my_hadoop/down_sample_files_mod
+
+echo Launch emulator
+
+srun python /user/kmarcus2/emulator/mapreduce/mrmpi/src/newReduce/emulator-mrmpi-new.py /panasas/scratch/kmarcus2/emulator/my_hadoop/emulator_output
+
+echo done with srun
+
+echo copying files
+
+for h in `scontrol show hostname $SLURM_JOB_NODELIST`
+do
+    ssh $h "/user/kmarcus2/emulator/mapreduce/mrmpi/src/newReduce/copy.sh" &
+done
+wait
+
+echo cleaning files from scratch
+
+for h in `scontrol show hostname $SLURM_JOB_NODELIST`
+do
+    ssh $h "/user/kmarcus2/emulator/mapreduce/mrmpi/src/newReduce/clean.sh" &
+done
+wait
+
+#cp /scratch/resample_* /panasas/scratch/kmarcus2/emulator/my_hadoop/resamples_used_2000
+#cp /scratch/reduce_output_* /panasas/scratch/kmarcus2/emulator/my_hadoop/reduce_output_2000
+
+echo done

@@ -119,7 +119,7 @@ int main() {
     phm_count_list.reserve(PHM_COUNT);
 
     //Output file to which the output will be written
-    ofstream out_file;
+    /* ofstream out_file; */
 
     do {
 
@@ -255,13 +255,12 @@ int main() {
 
             stringstream output_filename;
             //  output_filename << "/panasas/scratch/shivaswa/output/file" << "_" << sample << "_" << rand()%1000000;
-            //output_filename << "/panasas/scratch/kmarcus2/emulator/my_hadoop/emulator_output/file"
-            output_filename << "/scratch/file"
+            /*output_filename << "/panasas/scratch/kmarcus2/emulator/my_hadoop/emulator_output/file"
                     << "_" << sample << "_" << count;
             if (!out_file.is_open()) {
                 out_file.open(output_filename.str().c_str(), ofstream::out);
                 //cout << output_filename << endl;
-            }
+            }*/
 
             for (int iresample = 0; iresample < int(res_neigh.size());
                     iresample++) {
@@ -295,7 +294,7 @@ int main() {
                 Mean_and_Variance(G, rhs, R, Rinv, beta, Res_X[iresample], X,
                         Mpts, Npts, Ndim + 2, sigma, log_corr_len_guess, ymax,
                         sample, uniq_coord, res_neigh[iresample], phm_neigh,
-                        *my_iter, phm, x_y_coord, phm_count_list, out_file);
+                        *my_iter, phm, x_y_coord, phm_count_list);
                 //    cout << " size of the output list outside the function   =  " << my_iter->output.size() << endl;
                 //  if ( count == 1658 ) {
                 //    for ( list<CombinePHM> :: iterator it= my_iter->output.begin(); it != my_iter->output.end(); it++ )
@@ -307,9 +306,9 @@ int main() {
                 delete[] Res_X[iresample].data;
             }
 
-            if (count % 500 == 0) {
+            /*if (count % 500 == 0) {
                 out_file.close();
-            }
+            }*/
             //cout << count << endl;
 
             Res_X.clear();
@@ -324,8 +323,8 @@ int main() {
         //  cout << sigma << endl;
     } while (input_stream.length());
 
-    if (out_file.is_open())
-        out_file.close();
+    /*if (out_file.is_open())
+        out_file.close();*/
 
     return 0;
 
