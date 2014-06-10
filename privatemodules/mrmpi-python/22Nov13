@@ -13,5 +13,5 @@ proc ModulesHelp { } {
 
 module-whatis	"mrmpi python module 22Nov13"
 
-prepend-path PYTHONPATH /user/kmarcus2/mrmpi-22Nov13/python
-prepend-path LD_LIBRARY_PATH /user/kmarcus2/mrmpi-22Nov13/src
+prepend-path PYTHONPATH /user/$::env(USER)/mrmpi-22Nov13/python
+prepend-path LD_LIBRARY_PATH /user/$::env(USER)/mrmpi-22Nov13/src
