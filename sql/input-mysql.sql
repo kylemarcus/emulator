@@ -1,15 +1,11 @@
-SET path = "/keith1/data/users/kmarcus2/sql-input/";
-SET phData = CONCAT(@path, "phData.txt");
-SET phMetaData = CONCAT(@path, "phMetaData.txt");
-SET macro_resamples = CONCAT(@path, "macro_resamples.tmp");
-SET phm = CONCAT(@path, "montserrat_take2_vol_dir_bed_int.phm");
-
-LOAD DATA INFILE @phData 
-  INTO TABLE TITAN(sample int,col int,ROW int,H double PRECISION)
+CREATE TABLE TITAN(sample int, col int, row int, H double PRECISION);
+LOAD DATA LOCAL INFILE '/keith1/data/users/kmarcus2/sql-input/phData.txt' 
+  INTO TABLE TITAN
   FIELDS TERMINATED BY ',';
 
-LOAD DATA INFILE @phMetaData
-  INTO TABLE meta(sample int, Nx int, Ny int, xstart double PRECISION, xend double PRECISION, ystart double PRECISION, yend double PRECISION,logvol double PRECISION,direction double PRECISION,basal double PRECISION,internal double PRECISION)
+CREATE TABLE meta(sample int, Nx int, Ny int, xstart double PRECISION, xend double PRECISION, ystart double PRECISION, yend double PRECISION,logvol double PRECISION,direction double PRECISION,basal double PRECISION,internal double PRECISION);
+LOAD DATA LOCAL INFILE '/keith1/data/users/kmarcus2/sql-input/phMetaData.txt' 
+  INTO TABLE meta
   FIELDS TERMINATED BY ',';
 
 CREATE TABLE TEMP AS
@@ -285,8 +281,9 @@ GROUP BY sample,
 DROP TABLE
 TEMPORARY;
 
-LOAD DATA INFILE @macro_resamples
-  INTO TABLE resamples(resample int,P1 double PRECISION,P2 double PRECISION,P3 double PRECISION,P4 double PRECISION, w double PRECISION)
+CREATE TALBE resamples(resample int,P1 double PRECISION,P2 double PRECISION,P3 double PRECISION,P4 double PRECISION, w double PRECISION);
+LOAD DATA LOCAL INFILE '/keith1/data/users/kmarcus2/sql-input/macro_resamples.tmp'
+  INTO TABLE resamples
   FIELDS TERMINATED BY ' ';
 
 CREATE TABLE maxmin_resamples AS
@@ -445,8 +442,9 @@ FROM
 
 DROP TABLE needed_resamples;
 
-LOAD DATA INFILE @phm
-  INTO TABLE phm(id int,X double PRECISION, Y double PRECISION)
+CREATE TABLE phm(id int,X double PRECISION, Y double PRECISION);
+LOAD DATA LOCAL INFILE '/keith1/data/users/kmarcus2/sql-input/montserrat_take2_vol_dir_bed_int.phm'
+  INTO TABLE phm
   FIELDS TERMINATED BY ' ';
 
 CREATE TABLE uniq_coord AS
