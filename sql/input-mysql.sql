@@ -1,6 +1,6 @@
-CREATE TABLE TITAN(sample int, col int, row int, H double PRECISION);
+CREATE TABLE titan(sample int, col int, row int, H double PRECISION);
 LOAD DATA LOCAL INFILE '/keith1/data/users/kmarcus2/sql-input/phData.txt' 
-  INTO TABLE TITAN
+  INTO TABLE titan
   FIELDS TERMINATED BY ',';
 
 CREATE TABLE meta(sample int, Nx int, Ny int, xstart double PRECISION, xend double PRECISION, ystart double PRECISION, yend double PRECISION,logvol double PRECISION,direction double PRECISION,basal double PRECISION,internal double PRECISION);
@@ -38,7 +38,7 @@ AND titan.ROW=TEMP.ROW
 AND titan.col=TEMP.col
 ORDER BY sample;
 
-DROP TABLE Titan;
+DROP TABLE titan;
 
 ALTER TABLE TEMP RENAME TO Titan;
 
